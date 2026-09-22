@@ -58,7 +58,7 @@ Verificação das *Roles* e *Policies* necessárias para garantir que as funçõ
 
 | Role de Execução Principal | Role do Extrator de Dados |
 | :---: | :---: |
-| ![IAM Role Principal](01-iam-role-salesAnalysisReport.png) | ![IAM Role Data Extractor](02-iam-role-DataExtractor.png) |
+| ![IAM Role Principal](img/01-iam-role-salesAnalysisReport.png) | ![IAM Role Data Extractor](img/02-iam-role-DataExtractor.png) |
 
 ---
 
@@ -67,35 +67,35 @@ Criação da Lambda Layer com o driver `pymysql` e inclusão da função `salesA
 
 | Criação da Lambda Layer (PyMySQL) | Configuração de VPC no Lambda |
 | :---: | :---: |
-| ![Lambda Layer](03-lambda-layer-pymysql.png) | ![Configuração VPC](04-lambda-vpc-configuration.png) |
+| ![Lambda Layer](img/03-lambda-layer-pymysql.png) | ![Configuração VPC](img/04-lambda-vpc-configuration.png) |
 
 ---
 
 ### 3. Troubleshooting e Ajuste de Regras de Entrada (Security Group)
 Identificação da falha de *Timeout* ao tentar conectar ao banco de dados e resolução com a liberação do tráfego MySQL/Aurora (Porta 3306) no Security Group do banco.
 
-![Regra do Security Group na Porta 3306](05-security-group-mysql-port3306.png)
+![Regra do Security Group na Porta 3306](img/05-security-group-mysql-port3306.png)
 
 ---
 
 ### 4. Teste e Validação da Extração de Dados
 Após gerar pedidos reais na aplicação Web do Café, a função extratora consultou com sucesso a base MySQL e retornou os dados estruturados em JSON.
 
-![Sucesso na Extração do MySQL](06-lambda-data-extractor-success.png)
+![Sucesso na Extração do MySQL](img/06-lambda-data-extractor-success.png)
 
 ---
 
 ### 5. Configuração do Tópico de Notificação (Amazon SNS)
 Criação do tópico `SalesReportTopic` e confirmação da assinatura de e-mail para o envio do relatório automatizado.
 
-![Assinatura SNS Confirmada](07-sns-topic-subscription-confirmed.png)
+![Assinatura SNS Confirmada](img/07-sns-topic-subscription-confirmed.png)
 
 ---
 
 ### 6. Configuração de Variáveis de Ambiente e Orquestração
 Definição das chaves `topicARN` e `dataExtractorFunctionName` nas variáveis de ambiente da função orquestradora para garantir a comunicação dinâmica entre os componentes.
 
-![Variáveis de Ambiente](08-lambda-environment-variables.png)
+![Variáveis de Ambiente](img/08-lambda-environment-variables.png)
 
 ---
 
@@ -104,5 +104,5 @@ Execução da função orquestradora `salesAnalysisReport` recebendo o código H
 
 | Sucesso da Execução no Console AWS | E-mail de Relatório Recebido |
 | :---: | :---: |
-| ![Execução do Lambda](09-lambda-execution-success.png) | ![E-mail do Relatório](10-sales-report-email-received.png) |
+| ![Execução do Lambda](img/09-lambda-execution-success.png) | ![E-mail do Relatório](img/10-sales-report-email-received.png) |
 
