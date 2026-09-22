@@ -28,6 +28,7 @@ A arquitetura extrai dados de vendas de um banco de dados **MySQL** hospedado em
            │
            ▼
 [ Email Administrator ]
+```
 
 ### 🛠️ Serviços AWS Utilizados
 * **AWS Lambda & Lambda Layers:** Processamento Serverless e gerenciamento de dependências externas (`PyMySQL`).
